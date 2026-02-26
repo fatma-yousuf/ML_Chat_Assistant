@@ -1,5 +1,8 @@
 # ML_Chat_Assistant
 🤖 ML RAG Project — Hands-On Machine Learning Chatbot
+!<img width="1919" height="848" alt="image" src="https://github.com/user-attachments/assets/035875d3-0fab-4dee-b607-5d0c2eabb1bf" />
+!<img width="1919" height="849" alt="image" src="https://github.com/user-attachments/assets/f6764b07-8ba5-4de9-a3ec-e565f9eba79e" />
+
 A RAG-powered chatbot built on Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (Aurélien Géron), using LangGraph, ChromaDB, and Groq.
 Ask any question about the book. Get a structured answer with exact chapter and page citations — grounded only in the book text.
 Features
@@ -11,66 +14,7 @@ LangGraph ReAct agent — LLM decides when to retrieve vs. answer directly
 Streaming support via /chat/stream endpoint
 Clean Streamlit UI with markdown rendering and dark mode
 ## Architecture
-
-┌──────────────────────────────────────────┐
-│           Streamlit Frontend              │
-│  Multi-chat · JSON persistence · Markdown│
-└──────────────────┬───────────────────────┘
-                   │ POST /chat
-┌──────────────────▼───────────────────────┐
-│            FastAPI Backend                │
-│     /chat  ·  /chat/stream  ·  Pydantic  │
-└──────────────────┬───────────────────────┘
-                   │
-┌──────────────────▼───────────────────────┐
-│            Agent Service                  │
-│   Load memory → Invoke graph → Save      │
-└────────┬─────────────────────┬───────────┘
-         │                     │
-┌────────▼────────┐   ┌────────▼──────────────────┐
-│ Memory Service  │   │      LangGraph Agent        │
-│ JSON/chat_id    │   │  llm → tools_condition      │
-└─────────────────┘   │  → ToolNode → llm → END    │
-                      └────────┬──────────────────-─┘
-                               │
-                  ┌────────────▼─────────────────┐
-                  │       ChromaDB               │
-                  │  all-MiniLM-L6-v2 embeddings │
-                  │  Chunked PDF · Metadata       │
-                  └──────────────────────────────┘
-                  
-## Project Structure
-ml_rag_project/
-│
-├── backend/
-│   ├── main.py                     # FastAPI app entry point
-│   ├── api/
-│   │   └── chat.py                 # /chat and /chat/stream endpoints
-│   ├── services/
-│   │   ├── agent_service.py        # Orchestrates memory + graph
-│   │   ├── memory_service.py       # Load/save JSON memory per chat
-│   │   └── streaming.py            # StreamingResponse wrapper
-│   ├── ai/
-│   │   ├── llm.py                  # Groq ChatGroq initialization
-│   │   ├── prompt.py               # System prompt
-│   │   ├── graph.py                # LangGraph ReAct agent
-│   │   └── tools/
-│   │       └── retriever.py        # @tool: retrieve_passages
-│   ├── vector/
-│   │   ├── embeddings.py           # HFEmbeddings wrapper
-│   │   └── store.py                # Chroma client + retriever
-|   ├── data/
-│   |   |___Hands-On-ML.pdf             # ← Place your PDF here
-|   |
-│   └── schemas/
-│       └── chat.py                 # ChatRequest / ChatResponse
-│
-├── frontend/
-│   └── streamlit_app.py            # Multi-session chat UI
-│
-├── .env
-├── requirements.txt
-└── README.md
+<img width="1408" height="768" alt="Gemini_Generated_Image_co0vwdco0vwdco0v" src="https://github.com/user-attachments/assets/cd4549ad-90e3-4e51-a01e-1fdf29ef3dfe" />
 
 ## Setup    
 1. clone
