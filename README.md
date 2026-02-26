@@ -18,7 +18,7 @@ Clean Streamlit UI with markdown rendering and dark mode
 
 ## Setup    
 1. clone
-2. Some basic Git commands are:
+   Some basic Git commands are:
 ```
 git clone https://github.com/fatma-yousuf/ml-rag-project.git
 cd ml-rag-project
