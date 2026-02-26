@@ -18,25 +18,41 @@ Clean Streamlit UI with markdown rendering and dark mode
 
 ## Setup    
 1. clone
-   git clone https://github.com/fatma-yousuf/ml-rag-project.git
-   cd ml-rag-project
-2.  Install the necessary libraries
-   pip install -r requirements.txt
-3. Configure environment
-   Create a .env file in the project root:
-   GROQ_API_KEY=your_groq_api_key_here
-   GROQ_MODEL=qwen/qwen3-32b
-4. Add the book
+2. Some basic Git commands are:
+```
+git clone https://github.com/fatma-yousuf/ml-rag-project.git
+cd ml-rag-project
+```
+3.  Install the necessary libraries
+```
+pip install -r requirements.txt
+```
+   
+5. Configure environment
+   Create a `.env` file in the project root:
+```
+  GROQ_API_KEY=your_groq_api_key_here
+  GROQ_MODEL=qwen/qwen3-32b
+```
+ 
+7. Add the book
    Place Hands-On-ML.pdf inside backend/data/
-5. Build the vector index
+8. Build the vector index
    Required before first run. Chunks the PDF, generates embeddings, and persists to ChromaDB:
-   python scripts/build_index.py
+```
+python scripts/build_index.py
+```
    Note: Subsequent starts load the existing index — no need to re-run unless the PDF changes.
-6. Start the backend
+9. Start the backend
+```
    uvicorn backend.main:app --reload
-7. Start the frontend
+```
+11. Start the frontend
+```
    streamlit run frontend/streamlit_app.py
+```
 ### Open http://localhost:8501
+
 ## How the Agent Works
 class AgentState(TypedDict):
     messages: List[BaseMessage]
