@@ -49,11 +49,16 @@ pip install -r requirements.txt
 ### Open http://localhost:8501
 
 ## How the Agent Works
+```
 class AgentState(TypedDict):
     messages: List[BaseMessage]
-    
+```    
 The graph has two nodes — llm and tools — connected by tools_condition:
-If the LLM's response contains tool calls → route to ToolNode → back to llm
+
+If the LLM's response contains tool calls 
+→ route to ToolNode 
+→ back to llm
+
 If not → END
 
 The system prompt enforces three strict rules:
@@ -63,9 +68,9 @@ If not in the book, say so — never invent
 
 ## Requirements
 
-Python 3.11
-Groq API key qwen
-Hands-On-ML.pdf
-~2 GB disk space for ChromaDB index and model weights
+1- Python 3.11
+2- Groq API key qwen
+3- Hands-On-ML.pdf
+4- ~2 GB disk space for ChromaDB index and model weights
 
 ### "Built by Fatma Yousuf and Mostafa Mohamed as a course project"
