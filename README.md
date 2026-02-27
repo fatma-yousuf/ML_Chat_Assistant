@@ -37,17 +37,12 @@ pip install -r requirements.txt
  
 7. Add the book
    Place Hands-On-ML.pdf inside backend/data/
-8. Build the vector index
-   Required before first run. Chunks the PDF, generates embeddings, and persists to ChromaDB:
-```
-python scripts/build_index.py
-```
-   Note: Subsequent starts load the existing index — no need to re-run unless the PDF changes.
-9. Start the backend
+
+8. Start the backend
 ```
    uvicorn backend.main:app --reload
 ```
-11. Start the frontend
+9. Start the frontend
 ```
    streamlit run frontend/streamlit_app.py
 ```
