@@ -69,8 +69,11 @@ If not in the book, say so — never invent
 ## Requirements
 
 1- Python 3.11
+
 2- Groq API key qwen
+
 3- Hands-On-ML.pdf
+
 4- ~2 GB disk space for ChromaDB index and model weights
 
 ### "Built by Fatma Yousuf and Mostafa Mohamed as a course project"
